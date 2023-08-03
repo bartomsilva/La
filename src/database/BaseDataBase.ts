@@ -1,6 +1,6 @@
 import { knex } from "knex"
 import dotenv from "dotenv"
-import { PostDB } from "../models/Post"
+import { PostDB } from "../models/posts/Post"
 dotenv.config()
 export abstract class BaseDataBase {
 

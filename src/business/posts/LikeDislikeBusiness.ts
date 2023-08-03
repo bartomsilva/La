@@ -1,9 +1,10 @@
-import { LikesDislikesDatabase } from "../database/LikeDislikeDatabase";
-import { LikeDislikeInputDTO } from "../dtos/posts/likeDislike.dto";
-import { BadRequestError } from "../error/BadRequest";
-import { NotFoundError } from "../error/NotFound";
-import { LikesDislikesDB, PostDB } from "../models/Post";
-import { TokenManager } from "../services/TokenManager";
+import { LikesDislikesDatabase } from "../../database/posts/LikeDislikeDatabase"
+import { LikeDislikeInputDTO } from "../../dtos/posts/likeDislike.dto"
+import { BadRequestError } from "../../error/BadRequest"
+import { NotFoundError } from "../../error/NotFound"
+import { LikesDislikesDB, PostDB } from "../../models/posts/Post"
+import { TokenManager } from "../../services/TokenManager"
+
 
 export class LikeDislikeBusiness {
 

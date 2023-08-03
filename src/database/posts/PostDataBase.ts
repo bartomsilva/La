@@ -1,5 +1,5 @@
-import { PostDB, PostResultDB, PostUpdateDB } from "../models/Post";
-import { BaseDataBase } from "./BaseDataBase";
+import { PostDB, PostResultDB, PostUpdateDB } from "../../models/posts/Post";
+import { BaseDataBase } from "../BaseDataBase";
 
 export class PostDataBase extends BaseDataBase {
 
