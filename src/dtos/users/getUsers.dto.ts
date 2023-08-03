@@ -15,6 +15,14 @@ export interface GetUsersOutputDTO {
 }
 
 export const GetUsersSchema = z.object({
-  q: z.string().min(1).optional(),
-  token: z.string().min(1), // adicionamos token também no schema
+  q: z.string(
+    {
+      invalid_type_error: "'q' precisa ser string"
+    }
+  ).min(1,"'q' precisa ter pelomenos 1 caracter").optional(),
+  token: z.string(
+    {
+      required_error:"'token' é obrigatório",
+      invalid_type_error: "'token' precisa ser string"
+    }).min(1,"'token' precisa ter pelomenos 1 caracter"), // adicionamos token também no schema
 }).transform(data => data as GetUsersInputDTO)

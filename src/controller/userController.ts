@@ -1,9 +1,9 @@
 import { Request, Response } from "express"
-import { SingUpInputDTO, SingUpSchema } from "../dtos/users/singUp.dto"
+import { SingUpSchema } from "../dtos/users/singUp.dto"
 import { UserBusiness } from "../business/UserBusiness";
 import { handlerError } from "../error/handlerError";
-import { GetUsersInputDTO } from "../dtos/users/getUsers.dto";
-import { LoginInputDTO } from "../dtos/users/login.dto";
+import { GetUsersSchema } from "../dtos/users/getUsers.dto";
+import { LoginSchema } from "../dtos/users/login.dto";
 
 export class UserController {
   constructor(private userBusiness: UserBusiness) { }
@@ -13,11 +13,11 @@ export class UserController {
   public getUsers = async (req: Request, res: Response): Promise<void> => {
     try {
 
-      const input: GetUsersInputDTO = {
-        q: req.query.q as string,
-        token: req.headers.authorization as string
-      }
-
+      const input = GetUsersSchema.parse({
+        q: req.query.q, 
+        token: req.headers.authorization
+      })
+      
       const output = await this.userBusiness.getUsers(input)
 
       res.status(200).send(output)
@@ -31,14 +31,12 @@ export class UserController {
   public singUp = async (req: Request, res: Response): Promise<void> => {
 
     try {
-      const input: SingUpInputDTO =
-      {
+      const input = SingUpSchema.parse({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-      }
+      })
 
-      SingUpSchema.parse(input)
       const output = await this.userBusiness.singUp(input);
 
       res.status(201).send(output)
@@ -52,10 +50,10 @@ export class UserController {
   public login = async (req: Request, res: Response): Promise<void> => {
     try {
 
-      const input: LoginInputDTO = {
+      const input =  LoginSchema.parse({
         email: req.body.email,
         password: req.body.password
-      }
+      })
 
       const output = await this.userBusiness.login(input)
 
