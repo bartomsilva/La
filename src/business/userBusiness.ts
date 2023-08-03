@@ -20,7 +20,6 @@ export class UserBusiness {
   //=========== GET USER
   public getUsers = async (input: GetUsersInputDTO): Promise<GetUsersOutputDTO[]> => {
 
-    GetUsersSchema.parse(input)
     const { q, token } = input
 
     // geramos o payload a partir do token
@@ -38,7 +37,7 @@ export class UserBusiness {
 
     const resultDB: UserDB[] = await this.userDataBase.getUser(q)
 
-    const output:GetUsersOutputDTO[] = resultDB.map((user) => {
+    const output: GetUsersOutputDTO[] = resultDB.map((user) => {
       return {
         id: user.id,
         name: user.name,
@@ -87,10 +86,7 @@ export class UserBusiness {
     const token = this.tokenManager.createToken(tokenPayload)
 
     // retorno GERADO ( SERVICE )
-    const output: SingUpOutputDTO =
-    {
-      token: token
-    }
+    const output: SingUpOutputDTO = { token: token }
 
     return (output)
 
@@ -99,16 +95,15 @@ export class UserBusiness {
   //========== LOGIN
   public login = async (input: LoginInputDTO): Promise<LoginOutputDTO> => {
 
-    LoginSchema.parse(input)
     const { email, password } = input
 
     const userDB: UserDB = await this.userDataBase.findUser(email)
     if (!userDB) {
-      throw new BadRequestError("Usuário ou senha invalida")
+      throw new BadRequestError("Usuário não cadastrado")
     }
     const passworValid = await this.hashManager.compare(password, userDB.password)
     if (!passworValid) {
-      throw new BadRequestError("Usuário ou senha invalida")
+      throw new BadRequestError("Senha invalida")
     }
 
     // modelagem do objeto (payload)
@@ -121,9 +116,7 @@ export class UserBusiness {
     // criação do token string a partir do payload
     const token = this.tokenManager.createToken(tokenPayload)
 
-    const output: LoginOutputDTO = {
-      token: token
-    }
+    const output: LoginOutputDTO =  { token: token }
 
     return output
 
