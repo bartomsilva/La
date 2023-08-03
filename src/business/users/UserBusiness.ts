@@ -1,13 +1,13 @@
-import { GetUsersInputDTO, GetUsersOutputDTO, GetUsersSchema } from "../dtos/users/getUsers.dto"
-import { LoginInputDTO, LoginOutputDTO, LoginSchema } from "../dtos/users/login.dto"
-import { SingUpInputDTO, SingUpOutputDTO, SingUpSchema } from "../dtos/users/singUp.dto"
-import { BadRequestError } from "../error/BadRequest"
-import { ConflictError } from "../error/ConflictError"
-import { TokenPayload, USER_ROLES, UserDB } from "../models/User"
-import { UserDataBase } from "../database/UserDataBase"
-import { IdGenerator } from "../services/IdGenarator"
-import { HashManager } from "../services/HashManager"
-import { TokenManager } from "../services/TokenManager"
+import { UserDataBase } from "../../database/users/UserDataBase"
+import { GetUsersInputDTO, GetUsersOutputDTO } from "../../dtos/users/getUsers.dto"
+import { LoginInputDTO, LoginOutputDTO } from "../../dtos/users/login.dto"
+import { SingUpInputDTO, SingUpOutputDTO } from "../../dtos/users/singUp.dto"
+import { BadRequestError } from "../../error/BadRequest"
+import { ConflictError } from "../../error/ConflictError"
+import { TokenPayload, USER_ROLES, UserDB } from "../../models/users/User"
+import { HashManager } from "../../services/HashManager"
+import { IdGenerator } from "../../services/IdGenarator"
+import { TokenManager } from "../../services/TokenManager"
 
 export class UserBusiness {
   constructor(

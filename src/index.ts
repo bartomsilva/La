@@ -1,9 +1,8 @@
 import express from "express"
 import cors from "cors"
 import dotenv from 'dotenv'
-import { userRouter } from "./routes/userRouter"
-import { testRouter } from "./routes/testRouter"
-import { postRouter } from "./routes/postRouter"
+import { userRouter } from "./routes/users/userRouter"
+import { postRouter } from "./routes/posts/postRouter"
 
 dotenv.config()
 
@@ -17,7 +16,6 @@ server.listen(PORT, () => {
 })
 
 //================ ROTAS
-server.use("/labook", testRouter)
 server.use("/users", userRouter)
 server.use("/posts", postRouter)
 

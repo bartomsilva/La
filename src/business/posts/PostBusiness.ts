@@ -1,15 +1,16 @@
-import { PostDataBase } from "../database/PostDataBase";
-import { CreatePostInputDTO } from "../dtos/posts/createPost.dto";
-import { DeletePostInputDTO } from "../dtos/posts/deletePost.dto";
-import { GetPostInputDTO, GetPostOutputDTO } from "../dtos/posts/getPost.dto";
-import { UpdatePostInputDTO } from "../dtos/posts/updatePost.dto";
-import { BadRequestError } from "../error/BadRequest";
-import { NotFoundError } from "../error/NotFound";
-import { UnAuthorizedError } from "../error/UnAuthorized";
-import { PostDB, PostUpdateDB} from "../models/Post";
-import { USER_ROLES } from "../models/User";
-import { IdGenerator } from "../services/IdGenarator";
-import { TokenManager } from "../services/TokenManager";
+import { PostDataBase } from "../../database/posts/PostDataBase"
+import { CreatePostInputDTO } from "../../dtos/posts/createPost.dto"
+import { DeletePostInputDTO } from "../../dtos/posts/deletePost.dto"
+import { GetPostInputDTO, GetPostOutputDTO } from "../../dtos/posts/getPost.dto"
+import { UpdatePostInputDTO } from "../../dtos/posts/updatePost.dto"
+import { BadRequestError } from "../../error/BadRequest"
+import { NotFoundError } from "../../error/NotFound"
+import { UnAuthorizedError } from "../../error/UnAuthorized"
+import { PostDB, PostUpdateDB } from "../../models/posts/Post"
+import { USER_ROLES } from "../../models/users/User"
+import { IdGenerator } from "../../services/IdGenarator"
+import { TokenManager } from "../../services/TokenManager"
+
 
 export class PostBusiness {
   constructor(

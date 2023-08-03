@@ -1,12 +1,13 @@
 import { Request, Response } from "express"
-import { PostBusiness } from "../business/PostBusiness";
-import { CreatePostSchema } from "../dtos/posts/createPost.dto";
-import { handlerError } from "../error/handlerError";
-import { LikeDislikeBusiness } from "../business/LikeDislikeBusiness";
-import { LikeDislikeSchema } from "../dtos/posts/likeDislike.dto";
-import { UpdatePostSchema } from "../dtos/posts/updatePost.dto";
-import { DeletePostSchema } from "../dtos/posts/deletePost.dto";
-import { GetPostShema } from "../dtos/posts/getPost.dto";
+import { PostBusiness } from "../../business/posts/PostBusiness"
+import { LikeDislikeBusiness } from "../../business/posts/LikeDislikeBusiness"
+import { CreatePostSchema } from "../../dtos/posts/createPost.dto"
+import { handlerError } from "../../error/handlerError"
+import { UpdatePostSchema } from "../../dtos/posts/updatePost.dto"
+import { DeletePostSchema } from "../../dtos/posts/deletePost.dto"
+import { GetPostShema } from "../../dtos/posts/getPost.dto"
+import { LikeDislikeSchema } from "../../dtos/posts/likeDislike.dto"
+
 
 export class PostController {
   constructor(private postBusiness: PostBusiness,
