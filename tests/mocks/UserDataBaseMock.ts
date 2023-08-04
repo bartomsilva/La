@@ -1,4 +1,4 @@
-import { USER_ROLES, UserDB } from "../../src/models/User"
+import { USER_ROLES, UserDB } from "../../src/models/users/User"
 import { BaseDataBase } from "../../src/database/BaseDataBase"
 
 const usersMock: UserDB[] = [

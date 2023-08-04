@@ -23,18 +23,20 @@ export class PostBusiness {
 
     const { content, token } = input
 
-    // validar o token
+    // validando o token
     const payLoad = this.tokenManager.getPayload(token)
     if (payLoad == undefined) {
       throw new BadRequestError("token inválido")
     }
 
-    // pagar o id do usuário
+    // paga o id do usuário no objeto que é o resultado 
+    // da validação do token
     const { id: creatorId } = payLoad
 
-    // gera um novo id para o posto
+    // gera um novo id para o post
     const id = this.idGenerator.generate()
 
+    // aqui cria o objeto com os dados do novo post
     const newPost: PostDB = {
       id,
       creator_id: creatorId,
@@ -44,8 +46,8 @@ export class PostBusiness {
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     }
+    // enviando para ser salvo no banco de dados
     await this.postDataBase.insertPost(newPost)
-
   }
 
   //============= EDIT POST

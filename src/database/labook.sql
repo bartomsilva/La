@@ -22,7 +22,7 @@ CREATE TABLE posts(
 CREATE TABLE likes_dislikes(
     user_id VARCHAR(40),
     post_id VARCHAR(40),    
-    likes   INTEGER(1),
+    like    INTEGER(1),
     FOREIGN KEY(user_id) REFERENCES users(id)
     FOREIGN KEY(post_id) REFERENCES posts(id)
     ON DELETE CASCADE
