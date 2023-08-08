@@ -1,226 +1,133 @@
-# Projeto Labook
+<h1 align="left" margin-top="0">Labook</h1> 
 O Labook é uma rede social com o objetivo de promover a conexão e interação entre pessoas. Quem se cadastrar no aplicativo poderá criar e curtir publicações.
 
-Agora que temos as bases de criação de APIs e banco de dados, o próximo nível é a implementação de segurança e códigos mais escaláveis. Veremos durante o prazo de entrega desse projeto inúmeros conceitos e formas de desenvolvimento seguindo padrões de design e arquitetura, e seu desafio será unir as funcionalidades com as boas práticas de código.
+<span id='indice'></span>
+## Índice:
 
-# Conteúdos abordados
-- NodeJS
-- Typescript
-- Express
-- SQL e SQLite
-- Knex
-- POO
-- Arquitetura em camadas
-- Geração de UUID
-- Geração de hashes
-- Autenticação e autorização
-- Roteamento
-- Postman
+- <a href="#layout">Layout</a>
+- <a href="#requests">Requisições</a>
+- <a href="#example">Exemplo de Requisições</a>
+- <a href="#comorodar">Como rodar este projeto</a>
+- <a href="#tecnologias">Tecnologias Utilizadas</a>
+- <a href="#link">Documentação</a>
+- <a href="#author">Pessoas autoras</a>
+- <a href="#next">Considerações sobre este projeto</a>
+<hr/>
 
-# Banco de dados
-![projeto-labook (2)](https://user-images.githubusercontent.com/29845719/216036534-2b3dfb48-7782-411a-bffd-36245b78594e.png)
+<span id="layout"></span>
+<a href="#indice">:arrow_backward:Indíce</a>
+	
+## Layout: 
+#### a) Estrutura das pastas
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/eac02979-d853-46b0-b1c0-733986533028" height="40%"/>
 
-https://dbdiagram.io/d/63d16443296d97641d7c1ae1
+#### b) Endpoints implementados
+- [X]  Singup
+- [X]  Login 
+- [X]  Create post
+- [X]  Get posts 
+- [X]  Edit post
+- [X]  Delete post
+- [X]  Like / Dislike post
+<hr/>
+<span id="requests"></span>
+<a href="#indice">:arrow_backward:Indíce</a>
 
-# Lista de requisitos
-- Documentação Postman de todos os endpoints (obrigatória para correção)
+## Requisições (Paths): 
+#### Requisições de Usuários
+- /users
+#### Requisições de Posts
+- /posts
 
-- Endpoints
-    - [ ]  signup
-    - [ ]  login
-    - [ ]  create post
-    - [ ]  get posts
-    - [ ]  edit post
-    - [ ]  delete post
-    - [ ]  like / dislike post
+<hr/>
+<span id="example"></span>
+<a href="#indice">:arrow_backward:Indíce</a>
 
-- Autenticação e autorização
-    - [ ]  identificação UUID
-    - [ ]  senhas hasheadas com Bcrypt
-    - [ ]  tokens JWT
- 
- - Código
-    - [ ]  POO
-    - [ ]  Arquitetura em camadas
-    - [ ]  Roteadores no Express
+## Exemplos de requisição:
+### users
+#### POST posts/singup
+Permite o cadastro de um usuário e retorna um token. 
 
-- README.md
+#### POST posts/login 
+Permite o usuário efetuar login e devolve um token. 
 
-# Token payload e User roles
-O enum de roles e o payload do token JWT devem estar no seguinte formato:
-```typescript
-export enum USER_ROLES {
-    NORMAL = "NORMAL",
-    ADMIN = "ADMIN"
-}
 
-export interface TokenPayload {
-    id: string,
-    name: string,
-    role: USER_ROLES
-}
+
+<hr/>
+<span id='comorodar'></span>
+<a href="#indice">:arrow_backward:Indíce</a>
+
+## 📄 Como rodar este projeto:
+
+<p>Caso queira baixar e instalar este projeto em seu computador, é necessário que tenha o git e o node instalados.</p>
+
+### Links:  <a href="https://nodejs.org/en">Node</a> - <a href="https://git-scm.com/">Git</a>
+
+<p>Se já tem ambos instalados ou após instalar, siga os passos abaixo:</p>
+
+```bash
+
+# Copie o link a baixo
+
+https://github.com/bartomsilva/labecommerce-backend.git
+
+# Abra um terminal e digite o seguinte comando
+
+git clone (cole a url aqui)
+
+# acesse a página criada 
+
+cd labecommerce-backend
+
+# Instale as dependências
+npm install
+ou
+yarn install
+
+# Executando o Projeto
+npm run start
+ou 
+yarn start
+
 ```
+<hr/>
+<span id="tecnologias"></span>
+<a href="#indice">:arrow_backward:Indíce</a>
 
-# Exemplos de requisição
+## 💻 Tecnologias:
+<div align="center">
 
-## Signup
-Endpoint público utilizado para cadastro. Devolve um token jwt.
-```typescript
-// request POST /users/signup
-// body JSON
-{
-  "name": "Beltrana",
-  "email": "beltrana@email.com",
-  "password": "beltrana00"
-}
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2ecbb441-e22d-4be2-b67b-5fff6f606583" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/365c791b-268b-45f5-9268-9b1bad354a57" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/0e5d0c6e-bae0-43c9-b641-2d375361c29a" higth="35px"/><br>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/a6ce0cb3-39d8-4d48-af03-9b1ff68a2809" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/932a21bf-bd42-4b0c-87f8-8941d86f56f7" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bb5f2801-cf54-40da-ab18-1878173a177b" higth="35px"/>
+</div>
+<hr/>
 
-// response
-// status 201 CREATED
-{
-  token: "um token jwt"
-}
-```
+<span id="link"></span>
 
-## Login
-Endpoint público utilizado para login. Devolve um token jwt.
-```typescript
-// request POST /users/login
-// body JSON
-{
-  "email": "beltrana@email.com",
-  "password": "beltrana00"
-}
+## Documentação: 
+https://documenter.getpostman.com/view/26149268/2s946cfEBZ
 
-// response
-// status 200 OK
-{
-  token: "um token jwt"
-}
-```
+<span id="author"></span>
 
+## 📫 Pessoas autoras:
 
-## Create post
-Endpoint protegido, requer um token jwt para acessá-lo.
-```typescript
-// request POST /posts
-// headers.authorization = "token jwt"
-// body JSON
-{
-    "content": "Partiu happy hour!"
-}
+<img style="width: 200px; border-radius: 50% 0 " src="https://avatars.githubusercontent.com/u/106079184?s=400&u=753f5466a77193fe7077e495475b242787de0435&v=4" alt="imagem do autor">
+<p>Bartolomeu Mariano ( Bart Silva )</p>
 
-// response
-// status 201 CREATED
-```
+linkedin: https://www.linkedin.com/in/bart-silva-br/
 
+<span id='next'></span>
 
-## Get posts
-Endpoint protegido, requer um token jwt para acessá-lo.
-```typescript
-// request GET /posts
-// headers.authorization = "token jwt"
+## Considerações sobre este projeto:
+Bom, sobre este projeto, gostaria de pontuar algumas coisas:
+Com relação aos pedidos, acredito que deveria ser incluído na tabela de itens do pedido ( purchases_products ) a coluna referente
+ao valor do produto ( price ), uma vez que sem esse valor registrado, em uma consulta posterior a referência do valor é 
+perdida, pelo fato de que os preços podem aumentar ou diminuir, outra questão é a não implementação de uma autorização 
+tanto para leitura como para escrita de dados no banco de dados, estes dois pontos, assim como algumas melhorias seram adicionadas
+após a correção deste projeto.
+<hr/>
 
-// response
-// status 200 OK
-[
-    {
-        "id": "uma uuid v4",
-        "content": "Hoje vou estudar POO!",
-        "likes": 2,
-        "dislikes" 1,
-        "createdAt": "2023-01-20T12:11:47:000Z"
-        "updatedAt": "2023-01-20T12:11:47:000Z"
-        "creator": {
-            "id": "uma uuid v4",
-            "name": "Fulano"
-        }
-    },
-    {
-        "id": "uma uuid v4",
-        "content": "kkkkkkkkkrying",
-        "likes": 0,
-        "dislikes" 0,
-        "createdAt": "2023-01-20T15:41:12:000Z"
-        "updatedAt": "2023-01-20T15:49:55:000Z"
-        "creator": {
-            "id": "uma uuid v4",
-            "name": "Ciclana"
-        }
-    }
-]
-```
-
-
-## Edit post
-Endpoint protegido, requer um token jwt para acessá-lo.<br>
-Só quem criou o post pode editá-lo e somente o conteúdo pode ser editado.
-```typescript
-// request PUT /posts/:id
-// headers.authorization = "token jwt"
-// body JSON
-{
-    "content": "Partiu happy hour lá no point de sempre!"
-}
-
-// response
-// status 200 OK
-```
-
-## Delete post
-Endpoint protegido, requer um token jwt para acessá-lo.<br>
-Só quem criou o post pode deletá-lo. Admins podem deletar o post de qualquer pessoa.
-- garanta que ele continue funcionando depois de implementar o LIKE e DISLIKE!
-
-```typescript
-// request DELETE /posts/:id
-// headers.authorization = "token jwt"
-
-// response
-// status 200 OK
-```
-
-## Like or dislike post (mesmo endpoint faz as duas coisas)
-
-Endpoint protegido, requer um token jwt para acessá-lo.<br>
-Quem criou o post não pode dar like ou dislike no mesmo.<br><br>
-Caso dê um like em um post que já tenha dado like, o like é desfeito.<br>
-Caso dê um dislike em um post que já tenha dado dislike, o dislike é desfeito.<br><br>
-Caso dê um like em um post que tenha dado dislike, o like sobrescreve o dislike.<br>
-Caso dê um dislike em um post que tenha dado like, o dislike sobrescreve o like.
-### Like (funcionalidade 1)
-```typescript
-// request PUT /posts/:id/like
-// headers.authorization = "token jwt"
-// body JSON
-{
-    "like": true
-}
-
-// response
-// status 200 OK
-```
-
-### Dislike (funcionalidade 2)
-```typescript
-// request PUT /posts/:id/like
-// headers.authorization = "token jwt"
-// body JSON
-{
-    "like": false
-}
-
-// response
-// status 200 OK
-```
-
-### Para entender a tabela likes_dislikes
-- no SQLite, lógicas booleanas devem ser controladas via 0 e 1 (INTEGER)
-- quando like valer 1 na tabela é porque a pessoa deu like no post
-    - na requisição like é true
-    
-- quando like valer 0 na tabela é porque a pessoa deu dislike no post
-    - na requisição like é false
-    
-- caso não exista um registro na tabela de relação, é porque a pessoa não deu like nem dislike
-- caso dê like em um post que já tenha dado like, o like é removido (deleta o item da tabela)
-- caso dê dislike em um post que já tenha dado dislike, o dislike é removido (deleta o item da tabela)
