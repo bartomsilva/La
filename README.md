@@ -1,5 +1,5 @@
 <h1 align="left" margin-top="0">Labook</h1> 
-O Labook é uma rede social com o objetivo de promover a conexão e interação entre pessoas. Quem se cadastrar no aplicativo poderá criar e curtir publicações.
+O Labook é uma API que trada de uma rede social, ela tem as funcinalidades de login e cadastro de novos usuários, onde os usuários podem incluir, alterar ou deletar suas publicações, além de poder dar like ou dislike nas publicações de outros usuários.
 
 <span id='indice'></span>
 ## Índice:
@@ -11,7 +11,6 @@ O Labook é uma rede social com o objetivo de promover a conexão e interação 
 - <a href="#tecnologias">Tecnologias Utilizadas</a>
 - <a href="#link">Documentação</a>
 - <a href="#author">Pessoas autoras</a>
-- <a href="#next">Considerações sobre este projeto</a>
 <hr/>
 
 <span id="layout"></span>
@@ -44,18 +43,56 @@ O Labook é uma rede social com o objetivo de promover a conexão e interação 
 <a href="#indice">:arrow_backward:Indíce</a>
 
 ## Exemplos de requisição:
-### users
-#### POST posts/singup
+
+#### POST /users/singup
 Permite o cadastro de um usuário e retorna um token. 
 
-#### POST posts/login 
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/73b29a5f-7b7c-47a5-974e-ea2805cf6b20" />
+<br>
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/c03ecebd-ba13-402f-93e6-a5a6ea18644d" />
+
+
+#### POST /users/login 
 Permite o usuário efetuar login e devolve um token. 
 
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/17536f5d-3eab-40ff-bb4a-9f289e192baa"/>
+<br>
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/57957d0e-8119-46bf-8b4f-40396a392a95"/>
+
+#### POST /posts 
+Cria um novo post.
+
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/bbb54a80-190b-4c28-a979-b210ce83181b"/>
+
+
+#### GET /posts 
+Retorna a lista de todos os posts.
+
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/e5b2d48f-a2b5-49d8-8fc0-f435e2aa2dcd"/>
+
+
+#### PUT /posts 
+Permite editar o conteúdo do post, epena o autor do post pode efetuar a edição.
+
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/cb094e1a-821a-43af-8bf5-fbb7687d8e18"/>
+
+
+#### DELETE /posts  
+Permite deletar um post, mas apenas o próprio autor do post ou um usuário admin pode deletar um post.
+
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/7a50860d-0c92-4561-97ff-d24767ea9241"/>
+
+#### POST /posts/:id/like  
+Permite dar um like ou dislike em um post.
+
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/c706c032-460a-4faa-a643-09ea6edd3bc1"/>
 
 
 <hr/>
 <span id='comorodar'></span>
 <a href="#indice">:arrow_backward:Indíce</a>
+
+
 
 ## 📄 Como rodar este projeto:
 
@@ -69,7 +106,7 @@ Permite o usuário efetuar login e devolve um token.
 
 # Copie o link a baixo
 
-https://github.com/bartomsilva/labecommerce-backend.git
+https://github.com/bartomsilva/Labook-backend
 
 # Abra um terminal e digite o seguinte comando
 
@@ -77,12 +114,15 @@ git clone (cole a url aqui)
 
 # acesse a página criada 
 
-cd labecommerce-backend
+cd Labook-backend
 
 # Instale as dependências
 npm install
 ou
 yarn install
+
+# Configurando o ambiente
+renomeie o arquivo .env.example apra .env	
 
 # Executando o Projeto
 npm run start
@@ -109,7 +149,6 @@ yarn start
 <span id="link"></span>
 
 ## Documentação: 
-https://documenter.getpostman.com/view/26149268/2s946cfEBZ
 
 <span id="author"></span>
 
@@ -122,12 +161,5 @@ linkedin: https://www.linkedin.com/in/bart-silva-br/
 
 <span id='next'></span>
 
-## Considerações sobre este projeto:
-Bom, sobre este projeto, gostaria de pontuar algumas coisas:
-Com relação aos pedidos, acredito que deveria ser incluído na tabela de itens do pedido ( purchases_products ) a coluna referente
-ao valor do produto ( price ), uma vez que sem esse valor registrado, em uma consulta posterior a referência do valor é 
-perdida, pelo fato de que os preços podem aumentar ou diminuir, outra questão é a não implementação de uma autorização 
-tanto para leitura como para escrita de dados no banco de dados, estes dois pontos, assim como algumas melhorias seram adicionadas
-após a correção deste projeto.
-<hr/>
+
 
