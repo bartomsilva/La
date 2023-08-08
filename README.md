@@ -125,7 +125,7 @@ ou
 yarn install
 
 # Configurando o ambiente
-renomeie o arquivo .env.example apra .env	
+renomeie o arquivo .env.example para .env	
 
 # Executando o Projeto
 npm run start
