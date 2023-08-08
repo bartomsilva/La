@@ -137,18 +137,25 @@ yarn start
 ## 💻 Tecnologias:
 <div align="center">
 
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2ecbb441-e22d-4be2-b67b-5fff6f606583" higth="35px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/365c791b-268b-45f5-9268-9b1bad354a57" higth="35px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/0e5d0c6e-bae0-43c9-b641-2d375361c29a" higth="35px"/><br>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/a6ce0cb3-39d8-4d48-af03-9b1ff68a2809" higth="35px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/932a21bf-bd42-4b0c-87f8-8941d86f56f7" higth="35px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bb5f2801-cf54-40da-ab18-1878173a177b" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2ecbb441-e22d-4be2-b67b-5fff6f606583" height="55px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/365c791b-268b-45f5-9268-9b1bad354a57" height="55px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/0e5d0c6e-bae0-43c9-b641-2d375361c29a" height="55px"/><br>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/a6ce0cb3-39d8-4d48-af03-9b1ff68a2809" height="55px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/932a21bf-bd42-4b0c-87f8-8941d86f56f7" height="55px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bb5f2801-cf54-40da-ab18-1878173a177b" height="55px"/><br>
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/36e9a0dd-c546-4b30-adfb-65ed7f36630e" height="55px"/>
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/7891f0ec-fafd-4fd4-98aa-61ba9a29b1f5" height="55px"/>
+<img src="https://github.com/bartomsilva/Labook-backend/assets/106079184/540d223e-81e0-4a88-b883-a08bdf8d441e" height="55px"/>
+
+
 </div>
 <hr/>
 
 <span id="link"></span>
 
 ## Documentação: 
+
+https://documenter.getpostman.com/view/26149268/2s9Xy2NBNw
 
 <span id="author"></span>
 
