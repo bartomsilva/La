@@ -55,7 +55,18 @@ export class LikesDislikesDatabase extends BaseDataBase{
   } 
   //========================= END
 
-  public  postSwitchLikeDislike = async (id: string, like: boolean):Promise<void>=>{
+  public  postReverseLikeDislike = async (id: string, like: number):Promise<void>=>{
+    if ( like===1){
+      await BaseDataBase.connection("posts")
+      .where({id})
+      .decrement("dislikes")
+      .increment("likes")
+    } else {
+      await BaseDataBase.connection("posts")
+      .where({id})
+      .decrement("likes")
+      .increment("dislikes")
+    }
   }
 
   //==================== FIND LIKE DISLIKE 

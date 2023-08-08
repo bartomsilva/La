@@ -26,7 +26,7 @@ export class UserDataBase extends BaseDataBase{
     } else {
       resultDB = await this.findAll()
     }
-    
+        
     return resultDB
   } 
 }

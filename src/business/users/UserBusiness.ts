@@ -116,7 +116,7 @@ export class UserBusiness {
     // criação do token string a partir do payload
     const token = this.tokenManager.createToken(tokenPayload)
 
-    const output: LoginOutputDTO =  { token: token }
+    const output: LoginOutputDTO = { token: token }
 
     return output
 
