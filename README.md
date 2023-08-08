@@ -1,5 +1,5 @@
 <h1 align="left" margin-top="0">Labook</h1> 
-O Labook é uma API que trata de uma rede social, ela tem as funcinalidades de login e cadastro de novos usuários, onde os usuários podem incluir, alterar ou deletar suas publicações, além de poder dar like ou dislike nas publicações de outros usuários.
+O Labook é uma API que trata de uma rede social, ela tem as funcionalidades de login e cadastro de novos usuários, onde os usuários podem incluir, alterar ou deletar suas publicações, além de poder dar like ou dislike nas publicações de outros usuários.
 
 <span id='indice'></span>
 ## Índice:
