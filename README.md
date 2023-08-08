@@ -29,7 +29,7 @@ O Labook é uma API que trada de uma rede social, ela tem as funcinalidades de l
 - [X]  Delete post
 - [X]  Like / Dislike post
 
-importante: endpoints dos post protegidos, precisa enviar um token válido para poder acessar.
+importante: endpoints dos posts protegidos, precisa enviar um token válido para poder acessar.
 
 <hr/>
 <span id="requests"></span>
