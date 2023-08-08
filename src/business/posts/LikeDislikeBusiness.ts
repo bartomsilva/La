@@ -28,7 +28,7 @@ export class LikeDislikeBusiness {
     const { id: UserId } = payLoad
 
     //monta o objeto de likes dislikes
-    const postLikeDislike:LikesDislikesDB = {
+    const postLikeDislike: LikesDislikesDB = {
       user_id: UserId,
       post_id: PostId,
       like: likeVal
@@ -47,7 +47,7 @@ export class LikeDislikeBusiness {
     }
 
     // pesquisar se ( likes_dislikes ) se não existe IdUser + IdPost
-    const likeDislikeDB:LikesDislikesDB = await this.likesDislikesDataBase.findLikeDislike(PostId, UserId)
+    const likeDislikeDB: LikesDislikesDB = await this.likesDislikesDataBase.findLikeDislike(PostId, UserId)
 
     // inserir na tabela (caso não haja registro)
     if (likeDislikeDB === undefined) {
@@ -68,13 +68,7 @@ export class LikeDislikeBusiness {
         }
       } else { // trocar o likeDislike (inverter)
         await this.likesDislikesDataBase.updateLikeDislike(postLikeDislike)
-        if (likeVal === 1) { // se deu like
-          await this.likesDislikesDataBase.postDecreaseDislike(PostId)
-          await this.likesDislikesDataBase.postIncreaseLike(PostId)
-        } else {  // se deu dislike
-          await this.likesDislikesDataBase.postDecreaseLike(PostId)
-          await this.likesDislikesDataBase.postIncreaseDislike(PostId)
-        }
+        await this.likesDislikesDataBase.postReverseLikeDislike(PostId, likeVal)
       }
     }
   }
