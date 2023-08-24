@@ -1,16 +1,16 @@
 import z from 'zod'
 
-export interface SingUpInputDTO {
+export interface CreateUserInputDTO {
   name: string,
   email: string,
   password: string
 }
-export interface SingUpOutputDTO 
+export interface CreateUserOutputDTO 
 {
   token: string
 }
 
-export const SingUpSchema = z.object({
+export const CreateUserSchema = z.object({
   name: z.string(
     {
       required_error: "'name' é obrigatório",
@@ -31,4 +31,4 @@ export const SingUpSchema = z.object({
     }).refine((value) => /^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$/g.test(value)
       , "'password' deve ter entre 6 e 15 caracteres, incluindo números, " +
       "letras minusculas e no mínimo uma letra maiuscula, e um caracter especial")
-}).transform(data => data as SingUpInputDTO)
+}).transform(data => data as CreateUserInputDTO)

@@ -2,8 +2,9 @@ import { Request, Response } from "express"
 import { UserBusiness } from "../../business/users/UserBusiness"
 import { GetUsersSchema } from "../../dtos/users/getUsers.dto"
 import { handlerError } from "../../error/handlerError"
-import { SingUpSchema } from "../../dtos/users/singUp.dto"
+import { CreateUserSchema } from "../../dtos/users/singUp.dto"
 import { LoginSchema } from "../../dtos/users/login.dto"
+import { CreateAdminSchema } from "../../dtos/users/createAdmin.dto"
 export class UserController {
   constructor(private userBusiness: UserBusiness) { }
 
@@ -26,17 +27,17 @@ export class UserController {
     }
   }
 
-  //=========== SING UP
-  public singUp = async (req: Request, res: Response): Promise<void> => {
+  //=========== SING UP / CREATE USER
+  public createUser = async (req: Request, res: Response): Promise<void> => {
 
     try {
-      const input = SingUpSchema.parse({
+      const input = CreateUserSchema.parse({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
       })
 
-      const output = await this.userBusiness.singUp(input);
+      const output = await this.userBusiness.createUser(input);
 
       res.status(201).send(output)
 
@@ -62,4 +63,24 @@ export class UserController {
       handlerError(res, error)
     }
   }
+
+  // CREATE ADMIN
+  public createAdmin = async (req: Request, res: Response): Promise<void> => {
+
+    try {
+      const input = CreateAdminSchema.parse({
+        id: req.params.id,
+        isAdmin: req.body.isAdmin,
+        token: req.headers.authorization
+      })
+
+      await this.userBusiness.createAdmin(input);
+
+      res.sendStatus(200)
+
+    } catch (error) {
+      handlerError(res, error)
+    }
+  }
+
 }

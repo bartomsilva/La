@@ -22,8 +22,11 @@ const userController = new UserController
 //================== GET USER
 userRouter.get("/", userController.getUsers)
 
-//================== SING UP
-userRouter.post("/singup", userController.singUp)
+//================== SING UP / CREATE USER
+userRouter.post("/singup", userController.createUser)
 
 //=================== LOGIN
 userRouter.post("/login", userController.login)
+
+//================== CREATE ADMIN
+userRouter.post("/:id/createadmin", userController.createAdmin)

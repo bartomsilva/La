@@ -21,3 +21,6 @@ export const GetPostShema = z.object(
   {
     token: z.string().min(1)
   }).transform(data => data as GetPostInputDTO)
+
+
+  
