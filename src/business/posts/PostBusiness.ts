@@ -25,7 +25,7 @@ export class PostBusiness {
 
     // validando o token
     const payLoad = this.tokenManager.getPayload(token)
-    if (payLoad == undefined) {
+    if (payLoad == null) {
       throw new BadRequestError("token inválido")
     }
 
@@ -56,7 +56,7 @@ export class PostBusiness {
     const { content, token } = input
 
     const payLoad = this.tokenManager.getPayload(token)
-    if (payLoad == undefined) {
+    if (payLoad == null) {
       throw new BadRequestError("token inválido")
     }
     // pagar o id do usuário
@@ -88,7 +88,7 @@ export class PostBusiness {
     const { id, token } = input
 
     const payLoad = this.tokenManager.getPayload(token)
-    if (payLoad == undefined) {
+    if (payLoad == null) {
       throw new BadRequestError("token inválido")
     }
     // pagar o id do usuário
@@ -113,7 +113,7 @@ export class PostBusiness {
     const { token } = input 
     // validar o token
     const payLoad = this.tokenManager.getPayload(token)
-    if (payLoad == undefined) {
+    if (payLoad == null) {
       throw new BadRequestError("token inválido")
     }
 

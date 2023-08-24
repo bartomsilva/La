@@ -1,4 +1,4 @@
-import { UserDB } from "../../models/users/User"
+import { AdminDB, USER_ROLES, UserDB } from "../../models/users/User"
 import { BaseDataBase } from "../BaseDataBase"
 
 export class UserDataBase extends BaseDataBase{
@@ -29,4 +29,12 @@ export class UserDataBase extends BaseDataBase{
         
     return resultDB
   } 
+
+  // troca o Status do usuário para admin ou revoga
+  public createAdmin = async (idUser: string, userNewStatus: AdminDB ):Promise<void> =>{
+    await BaseDataBase.
+    connection(this.TABLE_NAME).
+    update(userNewStatus).
+    where({id: idUser})
+  }
 }

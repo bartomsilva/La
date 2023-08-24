@@ -18,5 +18,8 @@ export interface UserDB {
   role: USER_ROLES,  
   created_at: string  
 }
-  
+ 
+export interface AdminDB {
+  role: USER_ROLES  
+}
   

@@ -1,10 +1,11 @@
 import { UserDataBase } from "../../database/users/UserDataBase"
+import { CreateAdminInputDTO } from "../../dtos/users/createAdmin.dto"
 import { GetUsersInputDTO, GetUsersOutputDTO } from "../../dtos/users/getUsers.dto"
 import { LoginInputDTO, LoginOutputDTO } from "../../dtos/users/login.dto"
-import { SingUpInputDTO, SingUpOutputDTO } from "../../dtos/users/singUp.dto"
+import { CreateUserInputDTO, CreateUserOutputDTO } from "../../dtos/users/singUp.dto"
 import { BadRequestError } from "../../error/BadRequest"
 import { ConflictError } from "../../error/ConflictError"
-import { TokenPayload, USER_ROLES, UserDB } from "../../models/users/User"
+import { AdminDB, TokenPayload, USER_ROLES, UserDB } from "../../models/users/User"
 import { HashManager } from "../../services/HashManager"
 import { IdGenerator } from "../../services/IdGenarator"
 import { TokenManager } from "../../services/TokenManager"
@@ -30,10 +31,10 @@ export class UserBusiness {
       throw new BadRequestError("token inválido")
     }
 
-    // somente admins tem acesso a este recurso
-    //if (payload.role != USER_ROLES.ADMIN) {
-    //  throw new BadRequestError("somente admins podem acessar esse recurso")
-    //}
+    //somente admins tem acesso a este recurso
+    if (payload.role != USER_ROLES.ADMIN) {
+      throw new BadRequestError("somente admins podem acessar esse recurso")
+    }
 
     const resultDB: UserDB[] = await this.userDataBase.getUser(q)
 
@@ -50,8 +51,8 @@ export class UserBusiness {
 
   }
 
-  //=========== SING UP
-  public singUp = async (input: SingUpInputDTO): Promise<SingUpOutputDTO> => {
+  //=========== SING UP / CREATE USER
+  public createUser = async (input: CreateUserInputDTO): Promise<CreateUserOutputDTO> => {
 
     const { name, email, password } = input
 
@@ -85,8 +86,8 @@ export class UserBusiness {
     // criação do token string a partir do payload
     const token = this.tokenManager.createToken(tokenPayload)
 
-    // retorno GERADO ( SERVICE )
-    const output: SingUpOutputDTO = { token: token }
+    // retorno 
+    const output: CreateUserOutputDTO = { token: token }
 
     return (output)
 
@@ -120,5 +121,32 @@ export class UserBusiness {
 
     return output
 
+  }
+
+  //========== CREATE ADMIN
+  public createAdmin = async (input: CreateAdminInputDTO): Promise<void> => {
+
+    const { isAdmin, token } = input
+
+    // validação token 
+    const payLoad = this.tokenManager.getPayload(token)
+    if (payLoad == undefined) {
+      throw new BadRequestError("token inválido")
+    }
+
+    // id do usuário
+    const id = payLoad.id
+
+    const userDB: UserDB = await this.userDataBase.findById(id)
+
+    if (!userDB) {
+      throw new BadRequestError("Usuário não cadastrado")
+    }
+
+    // ajusta do status do usuário
+    const userNewStatus: AdminDB = {
+      role: isAdmin ? USER_ROLES.ADMIN : USER_ROLES.NORMAL
+    }
+    await this.userDataBase.createAdmin(id, userNewStatus)
   }
 }
