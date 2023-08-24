@@ -69,7 +69,6 @@ export class UserController {
 
     try {
       const input = CreateAdminSchema.parse({
-        id: req.params.id,
         isAdmin: req.body.isAdmin,
         token: req.headers.authorization
       })

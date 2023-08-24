@@ -29,4 +29,4 @@ userRouter.post("/singup", userController.createUser)
 userRouter.post("/login", userController.login)
 
 //================== CREATE ADMIN
-userRouter.post("/:id/createadmin", userController.createAdmin)
+userRouter.post("/createadmin", userController.createAdmin)

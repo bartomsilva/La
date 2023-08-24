@@ -31,10 +31,10 @@ export class UserBusiness {
       throw new BadRequestError("token inválido")
     }
 
-    // somente admins tem acesso a este recurso
-    //if (payload.role != USER_ROLES.ADMIN) {
-   //  throw new BadRequestError("somente admins podem acessar esse recurso")
-   // }
+    //somente admins tem acesso a este recurso
+    if (payload.role != USER_ROLES.ADMIN) {
+      throw new BadRequestError("somente admins podem acessar esse recurso")
+    }
 
     const resultDB: UserDB[] = await this.userDataBase.getUser(q)
 
@@ -123,17 +123,20 @@ export class UserBusiness {
 
   }
 
-   //========== CREATE ADMIN
-   public createAdmin = async (input: CreateAdminInputDTO ): Promise<void> => {
+  //========== CREATE ADMIN
+  public createAdmin = async (input: CreateAdminInputDTO): Promise<void> => {
 
-    const { id, isAdmin, token } = input
+    const { isAdmin, token } = input
 
-     // validação token 
-     const payLoad = this.tokenManager.getPayload(token)
-     if (payLoad == undefined) {
-       throw new BadRequestError("token inválido")
-     }
-     
+    // validação token 
+    const payLoad = this.tokenManager.getPayload(token)
+    if (payLoad == undefined) {
+      throw new BadRequestError("token inválido")
+    }
+
+    // id do usuário
+    const id = payLoad.id
+
     const userDB: UserDB = await this.userDataBase.findById(id)
 
     if (!userDB) {
@@ -144,6 +147,6 @@ export class UserBusiness {
     const userNewStatus: AdminDB = {
       role: isAdmin ? USER_ROLES.ADMIN : USER_ROLES.NORMAL
     }
-    await this.userDataBase.createAdmin(id,userNewStatus)
+    await this.userDataBase.createAdmin(id, userNewStatus)
   }
 }
