@@ -14,5 +14,4 @@ export const CreateAdminSchema = z.object({
     required_error: "'token' é obrigatório",
     invalid_type_error: "'token' deve ser do tipo string"
   }),
-
 }).transform(data => data as CreateAdminInputDTO)

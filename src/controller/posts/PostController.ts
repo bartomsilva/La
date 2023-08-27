@@ -8,7 +8,6 @@ import { DeletePostSchema } from "../../dtos/posts/deletePost.dto"
 import { GetPostShema } from "../../dtos/posts/getPost.dto"
 import { LikeDislikeSchema } from "../../dtos/posts/likeDislike.dto"
 
-
 export class PostController {
   constructor(private postBusiness: PostBusiness,
     private likeDislikeBusiness: LikeDislikeBusiness) { }
@@ -51,6 +50,7 @@ export class PostController {
       handlerError(res, error)
     }
   }
+
   // DELETE POST
   public deletePost = async (req: Request, res: Response) => {
     try {
@@ -67,8 +67,8 @@ export class PostController {
     } catch (error) {
       handlerError(res, error)
     }
-
   }
+
   //============ GET POST
   public getPost = async (req: Request, res: Response) => {
     try {

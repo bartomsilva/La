@@ -3,5 +3,4 @@ export abstract class BaseError extends Error {
     public statusCode: number,
     public message: string)
     { super(message) }
-
 }
