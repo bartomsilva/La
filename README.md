@@ -28,6 +28,9 @@ O Labook é uma API que trata de uma rede social, ela tem as funcionalidades de 
 - [X]  Edit post
 - [X]  Delete post
 - [X]  Like / Dislike post
+- [X]  Create admin (extra, ver documentação)
+- [X]  Get all users (extra, ver documentação)
+- [X]  Get user by name (extra, ver documentação)
 
 importante: endpoints dos posts protegidos, precisa enviar um token válido para poder acessar.
 
