@@ -73,9 +73,7 @@ export class LikesDislikesDatabase extends BaseDataBase {
       .decrement("likes")
       .increment("dislikes")
   }
-  //========================= END
 
-  //==================== FIND LIKE DISLIKE 
   // busca os detalhes de like / dislike
   public findLikeDislike = async (Post_Id: string, User_Id: string): Promise<LikesDislikesDB> => {
     const [resultDB]: LikesDislikesDB[] = await BaseDataBase.connection("likes_dislikes")

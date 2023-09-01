@@ -8,7 +8,6 @@ import { CreateAdminSchema } from "../../dtos/users/createAdmin.dto"
 export class UserController {
   constructor(private userBusiness: UserBusiness) { }
 
-
   //========== GET USERS
   public getUsers = async (req: Request, res: Response): Promise<void> => {
     try {
